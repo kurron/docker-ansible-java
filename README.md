@@ -1,5 +1,7 @@
 #Overview
-This project is a simple Docker image that provides the [Oracle JDK](http://www.oracle.com/technetwork/java/index.html).
+This project is a simple Docker image that combines the [Oracle JDK](http://www.oracle.com/technetwork/java/index.html) 
+with the [Ansible](http://www.ansible.com/) provisioning tool. This combination is useful in CI pipelines where you 
+build a JVM project and deploy it to some infrastructure for integration testing.
 
 #Prerequisites
 * a working [Docker](http://docker.io) engine
