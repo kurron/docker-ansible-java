@@ -6,22 +6,11 @@ ENV DEBIAN_FRONTEND noninteractive
 
 # Install Ansible
 RUN apt-get --quiet update && \
-    apt-get --quiet --yes install python-yaml python-jinja2 python-httplib2 python-keyczar python-paramiko python-setuptools python-pkg-resources git python-pip && \
+    apt-get --quiet --yes install python-setuptools python-dev && \
     apt-get clean && \
-    mkdir /etc/ansible/ && \
-    echo '[local]\nlocalhost\n' > /etc/ansible/hosts && \
-    mkdir /opt/ansible/ && \
-    git clone http://github.com/ansible/ansible.git /opt/ansible/ansible
-
-WORKDIR /opt/ansible/ansible
-
-RUN git submodule update --init
-    
-# set the environment variables 
-ENV PYTHONPATH /opt/ansible/ansible/lib 
-ENV ANSIBLE_LIBRARY /opt/ansible/ansible/library
-ENV PATH $PATH:/opt/ansible/ansible/bin
+    easy_install pip && \
+    pip install ansible 
 
 # export meta-data about this container
-LABEL org.kurron.ansible.version="latest-from-git"
+LABEL org.kurron.ansible.version="latest-from-pip"
 
