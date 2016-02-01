@@ -14,6 +14,8 @@ RUN apt-get --quiet update && \
 # export meta-data about this container
 LABEL org.kurron.ansible.version="latest-from-pip"
 
+VOLUME ["/home"]
 VOLUME ["/pwd"]
+WORKDIR /pwd
 
 CMD ["java", "-version", "ansible", "--version"]
