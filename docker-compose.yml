@@ -2,4 +2,3 @@ ansible-jdk:
     build: .
     container_name: "ansible-jdk"
     net: "host"
-    command: ansible --version
