@@ -11,11 +11,16 @@ RUN apt-get --quiet update && \
     easy_install pip && \
     pip install ansible 
 
+# copy the Gradle pieces into the container
+COPY gradle /opt/gradle/gradle/
+COPY gradlew /opt/gradle/
+
 # export meta-data about this container
 LABEL org.kurron.ansible.version="latest-from-pip"
+LABEL org.kurron.gradle.version="2.10"
 
 VOLUME ["/home"]
 VOLUME ["/pwd"]
 WORKDIR /pwd
 
-CMD ["java", "-version", "ansible", "--version"]
+ENTRYPOINT ["/opt/gradle/gradlew"]
