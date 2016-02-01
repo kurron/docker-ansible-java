@@ -27,4 +27,3 @@ VOLUME ["/pwd"]
 WORKDIR /pwd
 
 ENTRYPOINT ["/opt/gradle-2.10/bin/gradle"]
-CMD ["-version"]
