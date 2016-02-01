@@ -1,5 +1,5 @@
-jdk:
+ansible-jdk:
     build: .
-    container_name: "jdk"
+    container_name: "ansible-jdk"
     net: "host"
-    command: java -version
+    command: ansible --version
